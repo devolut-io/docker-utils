@@ -22,3 +22,7 @@ postgresql-client: Allows interaction with PostgreSQL databases, assisting in di
 mariadb-client: Provides tools to interact with MariaDB databases, facilitating troubleshooting of database-related issues.
 
 aws-cli: The AWS Command-Line Interface, useful for troubleshooting and interacting with AWS resources if your Kubernetes setup involves AWS services.
+
+# GitHub Runner Image
+
+This repository also includes a GitHub runner image for self-hosted runners, based on summerwind/actions-runner-controller and preconfigured with AWS CLI to streamline CI/CD pipelines.

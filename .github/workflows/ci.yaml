@@ -23,12 +23,22 @@ jobs:
         id: vars
         run: echo "sha_short=$(git rev-parse --short HEAD)" >> $GITHUB_OUTPUT
         
-      - name: Build and Push Docker Image
+      - name: Build and Push Docker utils
         uses: docker/build-push-action@v5
         with:
           context: .
-          file: ./Dockerfile
+          file: utils/Dockerfile
           push: true
           tags: |
             devolut/utils:${{ steps.vars.outputs.sha_short }}
             devolut/utils:latest
+            
+      - name: Build and Push Github Runner Docker Image
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          file: github-runner/Dockerfile
+          push: true
+          tags: |
+            devolut/github-runner:${{ steps.vars.outputs.sha_short }}
+            devolut/github-runner:latest
